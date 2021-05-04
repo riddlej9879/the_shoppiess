@@ -1,0 +1,15 @@
+.movie-form {
+  height: 55px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.search-field {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+.search-button {
+  height: 56px;
+}

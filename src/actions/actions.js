@@ -8,7 +8,7 @@ export const getData = () => (dispatch) => {
   dispatch({ type: FETCHING_DATA_START });
 
   axios
-    .get("http://www.omdbapi.com/?apikey=385f371e&t=game+of+thrones")
+    .get("http://www.omdbapi.com/?apikey=385f371e")
     .then((res) => console.log(res.data))
     .catch((err) => console.log("Error is: ", err));
 };
