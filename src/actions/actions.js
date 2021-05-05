@@ -1,14 +1,28 @@
+// import { axiosInstance } from "./axiosConfig";
 import axios from "axios";
 
-const FETCHING_DATA_START = "FETCHING_DATA_START";
-const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
-const FETCHING_DATA_FAILURE = "FETCHING_DATA_FAILURE";
+export const FETCHING_DATA_START = "FETCHING_DATA_START";
+export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
+export const FETCHING_DATA_FAILURE = "FETCHING_DATA_FAILURE";
 
-export const getData = () => (dispatch) => {
+axios.defaults.baseURL = "http://www.omdbapi.com";
+
+export const getData = (searchUrl) => (dispatch) => {
   dispatch({ type: FETCHING_DATA_START });
+  console.log("Action.js Line 12", "Search URL", searchUrl);
 
   axios
-    .get("http://www.omdbapi.com/?apikey=385f371e")
-    .then((res) => console.log(res.data))
-    .catch((err) => console.log("Error is: ", err));
+    .get(searchUrl)
+    .then((res) => {
+      dispatch({
+        type: FETCHING_DATA_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: FETCHING_DATA_FAILURE,
+        payload: `${err?.response?.message} with response code ${err?.response?.code}`,
+      });
+    });
 };

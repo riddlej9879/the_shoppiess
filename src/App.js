@@ -1,6 +1,6 @@
 import "./App.css";
 import SimpleMenu from "./components/navbar";
-import MovieForm from "./components/movieForm";
+import MovieForm from "./components/MovieForm";
 
 function App() {
   return (

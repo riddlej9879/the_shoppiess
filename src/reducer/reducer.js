@@ -5,7 +5,7 @@ import {
 } from "../actions/actions";
 
 const initialState = {
-  movie: null,
+  movieResults: null,
   isFetching: false,
   error: "",
 };
@@ -16,7 +16,7 @@ export const movieReducer = (state = initialState, action) => {
       console.log("Start");
       return {
         ...state,
-        movie: null,
+        movieResults: null,
         isFetching: true,
         error: "",
       };
@@ -24,14 +24,14 @@ export const movieReducer = (state = initialState, action) => {
       console.log("Success");
       return {
         ...state,
-        movie: action.payload,
+        movieResults: action.payload,
         isFetching: false,
       };
     case FETCHING_DATA_FAILURE:
       console.log("Failure");
       return {
         ...state,
-        movie: null,
+        movieResults: null,
         isFetching: false,
         error: "Hit an error",
       };
