@@ -10,9 +10,10 @@ import "./movieForm.css";
 let initialSearchData = {
   title: "",
   year: "",
+  searchUrl: "?apikey=385f371e",
 };
 
-let searchUrl = "?apikey=385f371e";
+let searchUrl;
 
 const MovieForm = (getData, movieResults, isFetching, error) => {
   const [searchData, updateSearchData] = useState(initialSearchData);
@@ -32,10 +33,10 @@ const MovieForm = (getData, movieResults, isFetching, error) => {
   };
 
   const handleClick = () => {
+    searchUrl = initialSearchData.searchUrl;
     if (searchData.title !== "") {
       searchUrl = searchUrl + "&s=" + searchData.title;
     }
-    console.log(searchUrl);
     getData.getData(searchUrl);
   };
 
@@ -70,7 +71,7 @@ const MovieForm = (getData, movieResults, isFetching, error) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("MovieForm.js line 69 mapStateToProps: ", state);
+  // console.log("MovieForm.js line 72 mapStateToProps: ", state);
   return {
     movieResults: state.movieResults,
     isFetching: state.isFetching,

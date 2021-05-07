@@ -13,3 +13,24 @@
 .search-button {
   height: 56px;
 }
+
+.movie-box {
+  background-color: #282c34;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  color: lightgray;
+}
+
+.movie-card {
+  border: 1px solid blue;
+  border-radius: 15px;
+  margin: 10px 50px;
+  width: 40vw;
+  height: 150px;
+  display: flex;
+  color: white;
+  padding: 10px;
+  background-color: lightslategrey;
+}

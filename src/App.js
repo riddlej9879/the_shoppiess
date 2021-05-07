@@ -1,6 +1,8 @@
-import "./App.css";
 import SimpleMenu from "./components/navbar";
 import MovieForm from "./components/MovieForm";
+import MovieBox from "./components/MovieBox";
+
+import "./App.css";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <p>Please select 5 movies or TV shows for a Shoppies nomination!!!</p>
       </header>
       <MovieForm />
+      <MovieBox />
     </div>
   );
 }
