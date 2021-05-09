@@ -14,23 +14,46 @@
   height: 56px;
 }
 
-.movie-box {
+.search-results,
+.nominees {
   background-color: #282c34;
   border: 1px solid red;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 50px;
   color: lightgray;
+  width: 45vw;
 }
 
 .movie-card {
   border: 1px solid blue;
   border-radius: 15px;
-  margin: 10px 50px;
-  width: 40vw;
+  margin: 10px 10px;
   height: 150px;
+  width: 40vw;
   display: flex;
   color: white;
   padding: 10px;
   background-color: lightslategrey;
+}
+
+.movie-poster {
+  width: 120px;
+  height: 150px;
+}
+
+.movie-box {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+
+.nominate-movie {
+  height: 50px;
+  width: 100px;
+}
+
+.movie-card button {
+  height: 50px;
+  border: none;
 }

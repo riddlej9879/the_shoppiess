@@ -1,4 +1,3 @@
-// import { axiosInstance } from "./axiosConfig";
 import axios from "axios";
 
 export const FETCHING_DATA_START = "FETCHING_DATA_START";
@@ -9,7 +8,6 @@ axios.defaults.baseURL = "http://www.omdbapi.com";
 
 export const getData = (searchUrl) => (dispatch) => {
   dispatch({ type: FETCHING_DATA_START });
-  console.log("Action.js Line 12", "Search URL", searchUrl);
 
   axios
     .get(searchUrl)

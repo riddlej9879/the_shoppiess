@@ -13,7 +13,6 @@ const initialState = {
 export const movieReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_DATA_START:
-      console.log("Start");
       return {
         ...state,
         movieResults: null,
@@ -21,14 +20,12 @@ export const movieReducer = (state = initialState, action) => {
         error: "",
       };
     case FETCHING_DATA_SUCCESS:
-      console.log("Success");
       return {
         ...state,
         movieResults: action.payload,
         isFetching: false,
       };
     case FETCHING_DATA_FAILURE:
-      console.log("Failure");
       return {
         ...state,
         movieResults: null,

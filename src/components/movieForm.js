@@ -32,46 +32,52 @@ const MovieForm = (getData, movieResults, isFetching, error) => {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     searchUrl = initialSearchData.searchUrl;
     if (searchData.title !== "") {
       searchUrl = searchUrl + "&s=" + searchData.title;
+    }
+    if (searchData.year !== "") {
+      searchUrl = searchUrl + "&y=" + searchData.year;
     }
     getData.getData(searchUrl);
   };
 
   return (
     <div className="movie-form">
-      <TextField
-        className="search-field"
-        id="title-outlined-basic"
-        label="Title"
-        variant="outlined"
-        name="title"
-        onChange={handleChange}
-      />
-      <TextField
-        className="search-field"
-        id="year-outlined-basic"
-        label="Year"
-        variant="outlined"
-        name="year"
-        onChange={handleChange}
-      />
-      <Button
-        className="search-button search-field"
-        onClick={handleClick}
-        variant="contained"
-        color="primary"
-      >
-        Search
-      </Button>
+      <form onSubmit={handleClick}>
+        <TextField
+          className="search-field"
+          id="title-outlined-basic"
+          label="Title"
+          variant="outlined"
+          name="title"
+          onChange={handleChange}
+        />
+        <TextField
+          className="search-field"
+          id="year-outlined-basic"
+          label="Year"
+          variant="outlined"
+          name="year"
+          onChange={handleChange}
+        />
+        <Button
+          className="search-button search-field"
+          onClick={handleClick}
+          variant="contained"
+          color="primary"
+          type="submit"
+        >
+          Search
+        </Button>
+      </form>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  // console.log("MovieForm.js line 72 mapStateToProps: ", state);
   return {
     movieResults: state.movieResults,
     isFetching: state.isFetching,
